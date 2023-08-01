@@ -1,0 +1,151 @@
+@font-face {
+    font-family: "Jura";
+    src: url("fonts/jura/jura.ttf") format('truetype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+    -webkit-font-smoothing: antialiased;
+
+}
+
+#root {
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    position: fixed!important;
+    width: 100%;
+    top: var(--safe-area-inset-bottom)!important;
+    bottom: var(--safe-area-inset-bottom)!important;
+}
+
+.back-button-top{
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    position: absolute!important;
+    /*top: calc(1vh + (var(--safe-area-inset-bottom)))!important;*/
+    top: 0
+}
+
+.back-button-top-fixed{
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    position: fixed!important;
+    top: calc(1vh + (var(--safe-area-inset-bottom)))!important;
+}
+
+.fixed-top-100{
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    position: fixed!important;
+    top: var(--safe-area-inset-bottom)!important;
+    bottom: var(--safe-area-inset-bottom)!important;
+}
+
+.fixed-full-screen{
+    --safe-area-inset-top: env(safe-area-inset-top);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    position: fixed!important;
+    top: 0!important;
+    height: calc(100vh + (var(--safe-area-inset-bottom)) + (var(--safe-area-inset-top)))!important;
+
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background: linear-gradient(0deg, rgb(75 0 214) 0%, #0dcaae 90%,#0dcaae 100%);
+    /*font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;*/
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    box-sizing: border-box;
+    height: 100vh;
+    width:100%;
+    overflow: hidden;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        /*background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);*/
+    }
+}
+
+
+#logoscreen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+}
+
+#logoscreen.hidden {
+    opacity: 0;
+}
+
+#logoscreen img {
+    max-width: 180px;
+    height: auto;
+}
+
+#root {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#root.visible {
+    opacity: 1;
+}
+
+.next-screen-level-0 {z-index: 1}
+.next-screen-level-1 {z-index: 101}
+.next-screen-level-2 {z-index: 201}
+.next-screen-level-3 {z-index: 301}
+.next-screen-level-4 {z-index: 401}
+.next-screen-level-5 {z-index: 501}
+.next-screen-level-6 {z-index: 601}
+.next-screen-level-7 {z-index: 701}
+.next-screen-level-8 {z-index: 801}
+.next-screen-level-9 {z-index: 901}
+
+.next-screen-level-1 .back-button{z-index: 199}
+.next-screen-level-2 .back-button{z-index: 299}
+.next-screen-level-3 .back-button{z-index: 399}
+.next-screen-level-4 .back-button{z-index: 499}
+.next-screen-level-5 .back-button{z-index: 599}
+.next-screen-level-6 .back-button{z-index: 699}
+.next-screen-level-7 .back-button{z-index: 799}
+.next-screen-level-8 .back-button{z-index: 899}
+.next-screen-level-9 .back-button{z-index: 999}
+
+
+
+.screen-title{
+    height: 5%;
+    font-size: 9vw;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 0.5vh;
+    color: white;
+    font-family: RobotoLight;
+}
+
+
+.font-jura{
+    font-family: 'Jura';
+    letter-spacing: -1px;
+    font-size: 4vh;
+    font-weight: 500;
+}
+
+.filter-light-blue{
+    filter: invert(30%) sepia(113%) saturate(445%) hue-rotate(150deg) brightness(143%) contrast(129%);
+}
